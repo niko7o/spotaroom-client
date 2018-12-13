@@ -4,12 +4,9 @@ import * as api from './constants/api.constants';
 import './sass/main.css';
 
 import Navbar from './components/Navbar';
-import Frame from './components/Frame';
 import Sidebar from './components/Sidebar';
 import HomeList from './components/HomeList';
 import Loader from './components/Loader';
-
-const baseClassName = 'App'
 
 class App extends Component {
   constructor(props) {
@@ -19,21 +16,21 @@ class App extends Component {
       loading: true,
       errors: null,
       homes: [],
+      cityIds: []
     };
   }
 
   getHomesFromCity = (city) => {
     axios.get(api.GET_HOMES_DEFAULT)
     .then(homesArray => {
-      console.log(homesArray) //@TO-DO: delete in prod
+      console.log(homesArray.data.data)
       this.setState({
         city: city,
-        homes: homesArray,
+        homes: homesArray.data.data,
         loading: false
       })
     })
     .catch(err => {
-      console.log(err) //@TO-DO: delete in prod
       this.setState({
         errors: err,
         loading: false
@@ -64,9 +61,9 @@ class App extends Component {
     return (
       <React.Fragment>
         <Navbar />
-        <div className="App__frame">
+        <div className="Search">
           <Sidebar />
-          <HomeList homes={homes}/>
+          { loading ? <Loader /> : <HomeList homes={homes}/> }
         </div>
       </React.Fragment>
     );

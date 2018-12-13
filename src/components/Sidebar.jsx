@@ -18,7 +18,6 @@ class Sidebar extends Component {
 
     return (
       <div className="Sidebar">
-        <h2>sidebar</h2>
         <h4>Filters</h4>
 
         <p>Property type:</p>

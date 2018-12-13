@@ -9,8 +9,8 @@
     align-items: center;
 
     .Loader__icon {
-        border: 8px solid #f3f3f3;
-        border-top: 8px solid #3498db;
+        border: 8px solid $loader-secondary-color;
+        border-top: 8px solid $loader-primary-color;
         border-radius: 50%;
         width: $loader-size;
         height: $loader-size;
@@ -19,6 +19,10 @@
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% { 
+        transform: rotate(0deg);
+    }
+    100% { 
+        transform: rotate(360deg);
+    }
 }

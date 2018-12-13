@@ -9,29 +9,20 @@ class HomeList extends Component {
     } = this.props;
 
     this.state = {
-      page: 1,
       homes,
     };
   }
 
   render() {
     const {
-      page,
       homes,
     } = this.state;
 
     return (
-      <div className="HomeList">
-        <h2>home list</h2>
-        <p>
-          Page:
-          { page }
-        </p>
-
-        {/* homes &&
+      <div className="Home__List">
         {
-          homes.map(home => <div className="Home">{home.title}</div>)
-        } */}
+          homes.map(home => <div className="Home__Card" key={home.id}>{home.title}</div>)
+        }
       </div>
     );
   }
