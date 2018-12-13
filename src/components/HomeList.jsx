@@ -4,13 +4,22 @@ class HomeList extends Component {
   constructor(props) {
     super(props);
 
+    const {
+      homes,
+    } = this.props;
+
     this.state = {
       page: 1,
+      homes,
     };
   }
 
   render() {
-    const { page } = this.state;  
+    const {
+      page,
+      homes,
+    } = this.state;
+
     return (
       <div className="HomeList">
         <h2>home list</h2>
@@ -18,6 +27,11 @@ class HomeList extends Component {
           Page:
           { page }
         </p>
+
+        homes &&
+        {
+          homes.map(home => <div className="Home">{home.title}</div>)
+        }
       </div>
     );
   }

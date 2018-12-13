@@ -3,17 +3,14 @@ import React, { Component } from 'react';
 class Frame extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-
-    };
   }
 
   render() {
+    const {
+      ...props
+    } = this.props;
     return (
-      <div className="Frame">
-        <h2>frame</h2>
-      </div>
+      { ...this.props.children }
     );
   }
 }

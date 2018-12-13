@@ -64,7 +64,7 @@ class App extends Component {
         <Navbar />
         <Frame>
           <Sidebar />
-            <HomeList />
+          <HomeList homes={homes}/>
         </Frame>
       </React.Fragment>
     );
