@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Suspense } from 'react';
 import axios from 'axios';
 import * as api from './constants/api.constants';
 import './App.css';
@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 import Frame from './components/Frame';
 import Sidebar from './components/Sidebar';
 import HomeList from './components/HomeList';
+import Loader from './components/Loader';
 
 class App extends Component {
   constructor(props) {
@@ -20,24 +21,25 @@ class App extends Component {
   }
 
   getHomesFromCity = (city) => {
-    axios.get('http://localhost:8000/api/homes')
+    axios.get(api.GET_HOMES_DEFAULT)
     .then(homesArray => {
+      console.log(homesArray) //@TO-DO: delete in prod
       this.setState({
-        homes: homesArray
+        city: city,
+        homes: homesArray,
+        loading: false
       })
     })
     .catch(err => {
       console.log(err) //@TO-DO: delete in prod
       this.setState({
-        errors: err
+        errors: err,
+        loading: false
       })
     })
   }
 
   componentDidMount() {
-    this.setState({
-      loading: false,
-    });
     this.getHomesFromCity(this.state.city);
   }
 
@@ -53,7 +55,9 @@ class App extends Component {
         <Navbar />
         <Frame>
           <Sidebar />
-          <HomeList />
+          <Suspense fallback={<Loader />}>
+            <HomeList />
+          </Suspense>
         </Frame>
       </React.Fragment>
     );
