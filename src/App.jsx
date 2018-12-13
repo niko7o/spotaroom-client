@@ -1,7 +1,7 @@
 import React, { Component, Suspense } from 'react';
 import axios from 'axios';
 import * as api from './constants/api.constants';
-import './App.css';
+import './sass/main.css';
 
 import Navbar from './components/Navbar';
 import Frame from './components/Frame';
