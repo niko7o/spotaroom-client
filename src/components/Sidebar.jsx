@@ -22,16 +22,16 @@ class Sidebar extends Component {
         <h4>Filters</h4>
 
         <p>Property type:</p>
-        <select name="type">
-          <option selected>All</option>
-          <option>Apartment</option>
-          <option>House</option>
+        <select defaultValue="All" name="type">
+          <option value="All">All</option>
+          <option value="Apartment">Apartment</option>
+          <option value="House">House</option>
         </select>
      
         <p>Sort by price:</p>
-        <select name="type">
-          <option selected>Ascending</option>
-          <option>Descending</option>
+        <select defaultValue="Ascending" name="type">
+          <option value="Ascending">Ascending</option>
+          <option value="Descending">Descending</option>
         </select>
       </div>
     );

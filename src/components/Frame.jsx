@@ -6,12 +6,7 @@ class Frame extends Component {
   }
 
   render() {
-    const {
-      ...props
-    } = this.props;
-    return (
-      { ...this.props.children }
-    );
+    return this.props.children;
   }
 }
 

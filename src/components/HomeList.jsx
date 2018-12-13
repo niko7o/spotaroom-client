@@ -28,10 +28,10 @@ class HomeList extends Component {
           { page }
         </p>
 
-        homes &&
+        {/* homes &&
         {
           homes.map(home => <div className="Home">{home.title}</div>)
-        }
+        } */}
       </div>
     );
   }

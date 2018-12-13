@@ -1,4 +1,4 @@
-import React, { Component, Suspense } from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
 import * as api from './constants/api.constants';
 import './sass/main.css';
@@ -8,6 +8,8 @@ import Frame from './components/Frame';
 import Sidebar from './components/Sidebar';
 import HomeList from './components/HomeList';
 import Loader from './components/Loader';
+
+const baseClassName = 'App'
 
 class App extends Component {
   constructor(props) {
@@ -62,10 +64,10 @@ class App extends Component {
     return (
       <React.Fragment>
         <Navbar />
-        <Frame>
+        <div className="App__frame">
           <Sidebar />
           <HomeList homes={homes}/>
-        </Frame>
+        </div>
       </React.Fragment>
     );
   }
