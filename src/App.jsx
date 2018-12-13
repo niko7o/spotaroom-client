@@ -50,14 +50,21 @@ class App extends Component {
   }
 
   render() {
+    const {
+      city,
+      loading,
+      errors,
+      homes
+    } = this.state;
+
+    if(loading) return (<Loader />);
+
     return (
       <React.Fragment>
         <Navbar />
         <Frame>
           <Sidebar />
-          <Suspense fallback={<Loader />}>
             <HomeList />
-          </Suspense>
         </Frame>
       </React.Fragment>
     );
