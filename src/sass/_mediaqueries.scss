@@ -1,0 +1,16 @@
+@media screen and (max-width: 540px) {
+    .Search {
+        flex-wrap: wrap;
+    }
+
+    .Sidebar {
+        justify-content: center;
+        display: flex;
+        align-items: center;
+    }
+    
+    .Sidebar,
+    .Homelist {
+        flex-basis: 100%;
+    }
+}

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+// import react-select
 
 class Sidebar extends Component {
   constructor(props) {
@@ -10,6 +11,11 @@ class Sidebar extends Component {
     };
   }
 
+  togglePrices = (direction) => {
+    this.setState({ sort: direction })
+    this.props.togglePrices(direction);
+  }
+
   render() {
     const {
       type,
@@ -18,9 +24,7 @@ class Sidebar extends Component {
 
     return (
       <div className="Sidebar">
-        <h4>Filters</h4>
-
-        <p>Property type:</p>
+        <p>Type:</p>
         <select defaultValue="All" name="type">
           <option value="All">All</option>
           <option value="Apartment">Apartment</option>
@@ -28,10 +32,12 @@ class Sidebar extends Component {
         </select>
      
         <p>Sort by price:</p>
-        <select defaultValue="Ascending" name="type">
+        <select defaultValue="Ascending" name="price">
           <option value="Ascending">Ascending</option>
           <option value="Descending">Descending</option>
         </select>
+
+        <button type="button">Download JSON</button>
       </div>
     );
   }

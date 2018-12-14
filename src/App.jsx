@@ -5,7 +5,7 @@ import './sass/main.css';
 
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
-import HomeList from './components/HomeList';
+import Homelist from './components/Homelist';
 import Loader from './components/Loader';
 
 class App extends Component {
@@ -13,11 +13,22 @@ class App extends Component {
     super(props);
     this.state = {
       city: 'madrid',
+      sort: 'asc',
+      type: 'all',
       loading: true,
       errors: null,
       homes: [],
-      cityIds: []
     };
+  }
+
+  componentDidMount() {
+    this.getHomesFromCity(this.state.city);
+  }
+
+  componentDidCatch(err) {
+    this.setState({
+      errors: err,
+    });
   }
 
   getHomesFromCity = (city) => {
@@ -38,21 +49,22 @@ class App extends Component {
     })
   }
 
-  componentDidMount() {
-    this.getHomesFromCity(this.state.city);
-  }
-
-  componentDidCatch(err) {
+  togglePrices = (direction) => {
+    let sortedHomes = [];
+    direction === 'asc' 
+    ? sortedHomes = this.state.homes.sort((a, b) => a.pricePerMonth - b.pricePerMonth)
+    : sortedHomes = this.state.homes.sort((a, b) => b.pricePerMonth - a.pricePerMonth)
+    
     this.setState({
-      errors: err,
-    });
+      sort: direction,
+      homes: sortedHomes
+    })
   }
 
   render() {
     const {
       city,
       loading,
-      errors,
       homes
     } = this.state;
 
@@ -62,8 +74,11 @@ class App extends Component {
       <React.Fragment>
         <Navbar />
         <div className="Search">
-          <Sidebar />
-          { loading ? <Loader /> : <HomeList homes={homes}/> }
+          <Sidebar togglePrices={this.togglePrices}/>
+          { loading 
+            ? <Loader /> 
+            : <Homelist homes={homes}/> 
+          }
         </div>
       </React.Fragment>
     );
