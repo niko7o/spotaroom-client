@@ -1,25 +1,12 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Homelist extends Component {
-  constructor(props) {
-    super(props);
-    const { 
-      propHomes,
-      propCity
-    } = this.props;
-
-    this.state = {
-      homes: propHomes,
-      city: propCity,
-    };
-  }
-
   render() {
-    const { homes } = this.state;
-
     return (
       <div className="Homelist">
-        {homes.map(home => (
+        <h1>{this.props.sort}</h1>
+        {this.props.homes.map(home => (
           <div className="Homecard" key={home.id}>
             <div className="Homecard__photo">
               <img src={home.photoUrls.homecardHidpi} alt={home.title} />
@@ -37,4 +24,28 @@ class Homelist extends Component {
   }
 }
 
+Homelist.defaultProps = {
+  homes: [],
+  sort: 'asc',
+};
+
+Homelist.propTypes = {
+  homes: PropTypes.arrayOf(PropTypes.object),
+  sort: PropTypes.string,
+};
+
 export default Homelist;
+
+// filterArray = () => {
+//   if(this.state.sort === 'asc') {
+//     const asc = this.state.homes.sort((a,b)=>a-b);
+//     this.setState({
+//       homes: asc
+//     })
+//   } else {
+//     const desc = this.state.homes.sort((a,b)=>b-a);
+//     this.setState({
+//       homes: desc
+//     })
+//   }
+// }

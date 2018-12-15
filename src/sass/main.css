@@ -41,13 +41,28 @@ body {
 .Search {
   width: 90%;
   margin: 0 auto;
-  display: flex; }
+  display: flex;
+  justify-content: space-between; }
 
 .Sidebar {
-  flex-basis: 20%; }
+  flex-basis: 25%; }
+
+.Sidebar__downloader {
+  width: 100%;
+  margin: 0 0 1em;
+  background-color: #a5eca5;
+  border: 0;
+  border-radius: 4px;
+  padding: 1em;
+  transition: .35s background-color ease;
+  font-size: 14px; }
+
+.Sidebar__downloader:hover {
+  cursor: pointer;
+  background-color: #35a735; }
 
 .Homelist {
-  flex-basis: 80%; }
+  flex-basis: 70%; }
 
 .Homelist .Homecard {
   align-items: center;
@@ -87,9 +102,13 @@ body {
   .Search {
     flex-wrap: wrap; }
   .Sidebar {
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     display: flex;
-    align-items: center; }
+    flex-wrap: wrap;
+    justify-content: center; }
+  .Sidebar__selector {
+    width: 100%; }
   .Sidebar,
   .Homelist {
     flex-basis: 100%; } }

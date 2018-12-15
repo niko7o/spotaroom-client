@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+
 class Navbar extends Component {
   constructor(props) {
     super(props);
@@ -12,7 +13,7 @@ class Navbar extends Component {
   render() {
     return (
       <div className="Navbar">
-        <h2>Spotaroom</h2>
+        <h2>[Spotaroom]</h2>
       </div>
     );
   }

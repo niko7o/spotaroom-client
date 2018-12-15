@@ -12,23 +12,15 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      homes: [],
       city: 'madrid',
       sort: 'asc',
-      type: 'all',
       loading: true,
-      errors: null,
-      homes: [],
     };
   }
 
   componentDidMount() {
     this.getHomesFromCity(this.state.city);
-  }
-
-  componentDidCatch(err) {
-    this.setState({
-      errors: err,
-    });
   }
 
   getHomesFromCity = (city) => {
@@ -43,29 +35,23 @@ class App extends Component {
     })
     .catch(err => {
       this.setState({
-        errors: err,
         loading: false
       })
     })
   }
 
-  togglePrices = (direction) => {
-    let sortedHomes = [];
-    direction === 'asc' 
-    ? sortedHomes = this.state.homes.sort((a, b) => a.pricePerMonth - b.pricePerMonth)
-    : sortedHomes = this.state.homes.sort((a, b) => b.pricePerMonth - a.pricePerMonth)
-    
-    this.setState({
-      sort: direction,
-      homes: sortedHomes
+  togglePrices = (order) => {
+    this.setState({ 
+      sort: order
     })
   }
 
   render() {
     const {
-      city,
+      homes,
+      type,
+      sort,
       loading,
-      homes
     } = this.state;
 
     if(loading) return (<Loader />);
@@ -74,10 +60,17 @@ class App extends Component {
       <React.Fragment>
         <Navbar />
         <div className="Search">
-          <Sidebar togglePrices={this.togglePrices}/>
+          <Sidebar 
+            togglePrices={this.togglePrices}
+            sort={sort}
+          />
           { loading 
             ? <Loader /> 
-            : <Homelist homes={homes}/> 
+            : <Homelist
+                togglePrices={this.togglePrices}
+                homes={homes}
+                sort={sort}
+              /> 
           }
         </div>
       </React.Fragment>

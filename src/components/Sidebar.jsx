@@ -1,43 +1,44 @@
 import React, { Component } from 'react';
-// import react-select
+import Select from 'react-select';
+
+const PriceSelectOptions = [
+  { value: 'asc', label: 'Ascending' },
+  { value: 'desc', label: 'Descending' },
+]
+
+const TypeSelectOptions = [
+  { value: 'apartment', label: 'Apartment' },
+  { value: 'room', label: 'Room' },
+  { value: 'studio', label: 'Studio' },
+  { value: 'residence', label: 'Residence' },
+]
 
 class Sidebar extends Component {
   constructor(props) {
     super(props);
-
+  
     this.state = {
-      type: 'all',
-      sort: 'ascending',
-    };
+      selectedPrice: 'asc'
+    }
   }
 
-  togglePrices = (direction) => {
-    this.setState({ sort: direction })
-    this.props.togglePrices(direction);
+  changePriceOnSelect = (selected) => {
+    this.props.togglePrices(selected.value)
   }
 
   render() {
-    const {
-      type,
-      sort 
-    } = this.state;
-
     return (
       <div className="Sidebar">
-        <p>Type:</p>
-        <select defaultValue="All" name="type">
-          <option value="All">All</option>
-          <option value="Apartment">Apartment</option>
-          <option value="House">House</option>
-        </select>
-     
         <p>Sort by price:</p>
-        <select defaultValue="Ascending" name="price">
-          <option value="Ascending">Ascending</option>
-          <option value="Descending">Descending</option>
-        </select>
+        <Select
+          className="Sidebar__selector"
+          value={this.state.selectedPrice}
+          onChange={this.changePriceOnSelect}
+          options={PriceSelectOptions} 
+        />
 
-        <button type="button">Download JSON</button>
+        <p>Save your search:</p>
+        <button className="Sidebar__downloader" type="button">Download JSON</button>
       </div>
     );
   }
