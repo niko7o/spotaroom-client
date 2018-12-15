@@ -8,8 +8,7 @@
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-scripts": "2.1.1",
-    "react-select": "^2.1.2",
-    "styled-components": "^4.1.2"
+    "react-select": "^2.1.2"
   },
   "scripts": {
     "build-css": "node-sass --include-path ./src/styles --include-path ./node_modules src/ -o src/",

@@ -7,10 +7,10 @@ const PriceSelectOptions = [
 ]
 
 const TypeSelectOptions = [
-  { value: 'apartment', label: 'Apartment' },
-  { value: 'room', label: 'Room' },
-  { value: 'studio', label: 'Studio' },
-  { value: 'residence', label: 'Residence' },
+  { value: 'apartments', label: 'Apartment' },
+  { value: 'rooms', label: 'Room' },
+  { value: 'studios', label: 'Studio' },
+  { value: 'residences', label: 'Residence' },
 ]
 
 class Sidebar extends Component {
@@ -24,7 +24,7 @@ class Sidebar extends Component {
 
   changeTypeOnSelect = (selected) => {
     this.setState({ selectedType: selected })
-    this.props.toggleType(selected.value)
+    this.props.getSpecificTypeHomes(selected.value)
   }
 
   changePriceOnSelect = (selected) => {

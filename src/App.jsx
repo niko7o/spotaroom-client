@@ -24,7 +24,7 @@ class App extends Component {
     this.getHomesFromApi();
   }
 
-  getHomesFromApi = (type) => {
+  getHomesFromApi = () => {
     axios.get(api.GET_HOMES_DEFAULT)
     .then(homesArray => {
       const initialHomes = this.orderHomesBy('asc', homesArray.data.data)
@@ -40,8 +40,23 @@ class App extends Component {
     })
   }
 
-  getHomesFromCity = (city) => {
-    // do another axios get here for different home citys based on parameters
+  getSpecificTypeHomes = (selectedType) => {
+    this.setState({ 
+      loading: true 
+    })
+    axios.get(`http://localhost:8000/api/homes/${this.state.city}/${selectedType}`)
+    .then(typedHomes => {
+      this.setState({
+        homes: typedHomes.data.data,
+        type: selectedType,
+        loading: false
+      })
+    })
+    .catch(err => {
+      this.setState({
+        loading: false,
+      })
+    })
   }
 
   orderHomesBy = (order, homes) => {
@@ -70,23 +85,25 @@ class App extends Component {
       loading,
     } = this.state;
 
-    if(loading) return (<Loader />);
 
     return (
       <React.Fragment>
         <Navbar />
         <div className="Search">
           <Sidebar 
+            getSpecificTypeHomes={this.getSpecificTypeHomes}
             togglePrices={this.togglePrices}
             sort={sort}
           />
+          
           { loading 
-            ? <Loader /> 
+            ? <Loader/> 
             : <Homelist
                 togglePrices={this.togglePrices}
                 homes={homes}
+                type={type}
                 sort={sort}
-              /> 
+            />
           }
         </div>
       </React.Fragment>
