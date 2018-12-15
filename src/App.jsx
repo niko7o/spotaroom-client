@@ -15,34 +15,50 @@ class App extends Component {
       homes: [],
       city: 'madrid',
       sort: 'asc',
+      type: 'all',
       loading: true,
     };
   }
 
   componentDidMount() {
-    this.getHomesFromCity(this.state.city);
+    this.getHomesFromApi();
   }
 
-  getHomesFromCity = (city) => {
+  getHomesFromApi = (type) => {
     axios.get(api.GET_HOMES_DEFAULT)
     .then(homesArray => {
-      console.log(homesArray.data.data)
+      const initialHomes = this.orderHomesBy('asc', homesArray.data.data)
       this.setState({
-        city: city,
-        homes: homesArray.data.data,
+        homes: initialHomes,
         loading: false
       })
     })
     .catch(err => {
       this.setState({
-        loading: false
+        loading: false,
       })
     })
   }
 
+  getHomesFromCity = (city) => {
+    // do another axios get here for different home citys based on parameters
+  }
+
+  orderHomesBy = (order, homes) => {
+    switch(order) {
+      case 'asc': return homes.sort((home1, home2) => home1.pricePerMonth - home2.pricePerMonth);
+
+      case 'desc': return homes.sort((home1, home2) => home2.pricePerMonth - home1.pricePerMonth);
+
+      default: return homes.sort((home1, home2) => home1.pricePerMonth - home2.pricePerMonth);
+    }
+  }
+
   togglePrices = (order) => {
-    this.setState({ 
-      sort: order
+    const newHomesByOrder = this.orderHomesBy(order, this.state.homes);
+    this.setState({
+      sort: order,
+      homes: newHomesByOrder
     })
   }
 

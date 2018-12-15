@@ -16,19 +16,33 @@ const TypeSelectOptions = [
 class Sidebar extends Component {
   constructor(props) {
     super(props);
-  
     this.state = {
-      selectedPrice: 'asc'
+      selectedPrice: 'asc',
+      selectedType: 'all'
     }
   }
 
+  changeTypeOnSelect = (selected) => {
+    this.setState({ selectedType: selected })
+    this.props.toggleType(selected.value)
+  }
+
   changePriceOnSelect = (selected) => {
+    this.setState({ selectedPrice: selected })
     this.props.togglePrices(selected.value)
   }
 
   render() {
     return (
       <div className="Sidebar">
+        <p>Property type:</p>
+        <Select
+          className="Sidebar__selector"
+          value={this.state.selectedType}
+          onChange={this.changeTypeOnSelect}
+          options={TypeSelectOptions} 
+        />
+
         <p>Sort by price:</p>
         <Select
           className="Sidebar__selector"
