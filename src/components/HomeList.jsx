@@ -29,7 +29,7 @@ Homelist.defaultProps = {
 };
 
 Homelist.propTypes = {
-  homes: PropTypes.arrayOf(PropTypes.object),
+  homes: PropTypes.arrayOf(PropTypes.object)
 };
 
 export default Homelist;
