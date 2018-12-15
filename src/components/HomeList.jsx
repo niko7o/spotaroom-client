@@ -7,15 +7,17 @@ const Homelist = props => (
   <div className="Homelist">
     {props.homes.map(home => (
       <div className="Homecard" key={home.id}>
-        <h1>{home.type}</h1>
         <div className="Homecard__photo">
           <img src={home.photoUrls.homecardHidpi} alt={home.title} />
         </div>
-        <span className="Homecard__title">{home.title}</span>
-        <div className="Homecard__price">{`${home.pricePerMonth}€`}</div>
-        <div className="Homecard__divider">
-          <Button text="More details" />
-          <Button text="Book now" />
+
+        <div className="Homecard__info">
+          <span className="Homecard__title">{home.title}</span>
+          <div className="Homecard__price">{`${home.pricePerMonth}€`}</div>
+          <div className="Homecard__buttons">
+            <Button text="More details" hasClass="primaryBtn" />
+            <Button text="Book now" hasClass="primaryBtn" />
+          </div>
         </div>
       </div>
     ))}

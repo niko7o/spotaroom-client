@@ -2,12 +2,12 @@ import React from 'react';
 
 const Button = (props) => {
   const {
-    classes,
+    hasClass,
     text 
   } = props;
 
   return (
-    <button type="button" className={classes}>{text}</button>
+    <button type="button" className={hasClass}>{text}</button>
   );
 };
 

@@ -1,4 +1,7 @@
 @media screen and (max-width: 540px) {
+    .Loader__wrapper {
+        background-color: rgba(0, 0, 0, 0.3)
+    }
     .Search {
         flex-wrap: wrap;
     }
@@ -17,5 +20,51 @@
     .Sidebar,
     .Homelist {
         flex-basis: 100%;
+        .Homecard {
+            flex-wrap: wrap;
+            .Homecard__photo {
+                flex-basis: 100%;
+                padding: 0;
+                img {
+                    border-radius: 4px;
+                }
+            }
+            .Homecard__info {
+                flex-basis: 100%;
+                .Homecard__title {
+                    flex-basis: 70%;
+                    font-size: 18px;
+                }
+    
+                .Homecard__price {
+                    flex-basis: 30%;
+                    font-size: 36px;
+                }
+    
+                .Homecard__buttons {
+                    justify-content: center;
+                    align-content: center;
+                    .primaryBtn {
+                        margin-right: 0;
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+
+    .Navbar {
+        align-items: center;
+
+        &__logo {
+            flex-basis: 100%;
+        }
+
+        &__links {
+            display: none;
+            &-mobile {
+                display: block;
+            }
+        }
     }
 }

@@ -1,6 +1,36 @@
 .Navbar {
+    align-items: center;
     background-color: #ffc747;
-    width: 100%;
+    box-sizing: border-box;
+    display: flex;
     margin: 0em auto 2em;
-    padding: 1em;
+    padding: 2em;
+    justify-content: center;
+    width: 100%;
+
+    &__logo {
+        flex-basis: 50%;
+    }
+
+    &__links {
+        display: flex;
+        flex-basis: 50%;
+        justify-content: space-around;
+        li {
+            list-style-type: none;
+        }
+        &-mobile {
+            display: none;
+            .hamburger {
+                position: relative;
+                span {
+                    display: block;
+                    width: 30px;
+                    height: 4px;
+                    background-color: black;
+                    margin-bottom: 4px;
+                }
+            }
+        }
+    }
 }

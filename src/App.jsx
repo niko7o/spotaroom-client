@@ -41,9 +41,7 @@ class App extends Component {
   }
 
   getSpecificTypeHomes = (selectedType) => {
-    this.setState({ 
-      loading: true 
-    })
+    this.setState({ loading: true })
     axios.get(`http://localhost:8000/api/homes/${this.state.city}/${selectedType}`)
     .then(typedHomes => {
       this.setState({
@@ -61,19 +59,21 @@ class App extends Component {
 
   orderHomesBy = (order, homes) => {
     switch(order) {
-      case 'asc': return homes.sort((home1, home2) => home1.pricePerMonth - home2.pricePerMonth);
+      case 'asc': 
+        return homes.sort((home1, home2) => home1.pricePerMonth - home2.pricePerMonth);
 
-      case 'desc': return homes.sort((home1, home2) => home2.pricePerMonth - home1.pricePerMonth);
+      case 'desc': 
+        return homes.sort((home1, home2) => home2.pricePerMonth - home1.pricePerMonth);
 
-      default: return homes.sort((home1, home2) => home1.pricePerMonth - home2.pricePerMonth);
+      default: 
+        return homes.sort((home1, home2) => home1.pricePerMonth - home2.pricePerMonth);
     }
   }
 
   togglePrices = (order) => {
-    const newHomesByOrder = this.orderHomesBy(order, this.state.homes);
     this.setState({
       sort: order,
-      homes: newHomesByOrder
+      homes: this.orderHomesBy(order, this.state.homes)
     })
   }
 

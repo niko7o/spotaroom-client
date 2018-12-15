@@ -1,22 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
+import Logo from './Logo';
+import Hamburger from './Hamburger';
 
-
-class Navbar extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-
-    };
-  }
-
-  render() {
-    return (
-      <div className="Navbar">
-        <h2>[Spotaroom]</h2>
-      </div>
-    );
-  }
-}
+const Navbar = () => (
+  <div className="Navbar">
+    <Logo />
+    <ul className="Navbar__links">
+      <li>The company</li>
+      <li>How we work</li>
+      <li>Contact us</li>
+    </ul>
+    <div className="Navbar__links-mobile">
+      <Hamburger />
+    </div>
+  </div>
+);
 
 export default Navbar;
