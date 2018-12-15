@@ -24,13 +24,14 @@ ul {
   display: flex;
   justify-content: center;
   align-items: center; }
-  .Loader__wrapper .Loader__icon {
-    border: 8px solid #f3f3f3;
-    border-top: 8px solid #ffc747;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    animation: spin 2s linear infinite; }
+
+.Loader__wrapper .Loader__icon {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #ffc747;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 2s linear infinite; }
 
 @keyframes spin {
   0% {
@@ -47,24 +48,30 @@ ul {
   padding: 2em;
   justify-content: center;
   width: 100%; }
-  .Navbar__logo {
-    flex-basis: 50%; }
-  .Navbar__links {
-    display: flex;
-    flex-basis: 50%;
-    justify-content: space-around; }
-    .Navbar__links li {
-      list-style-type: none; }
-    .Navbar__links-mobile {
-      display: none; }
-      .Navbar__links-mobile .hamburger {
-        position: relative; }
-        .Navbar__links-mobile .hamburger span {
-          display: block;
-          width: 30px;
-          height: 4px;
-          background-color: black;
-          margin-bottom: 4px; }
+
+.Navbar__logo {
+  flex-basis: 50%; }
+
+.Navbar__links {
+  display: flex;
+  flex-basis: 50%;
+  justify-content: space-around; }
+
+.Navbar__links li {
+  list-style-type: none; }
+
+.Navbar__links-mobile {
+  display: none; }
+
+.Navbar__links-mobile .hamburger {
+  position: relative; }
+
+.Navbar__links-mobile .hamburger span {
+  display: block;
+  width: 30px;
+  height: 4px;
+  background-color: black;
+  margin-bottom: 4px; }
 
 .Search {
   width: 90%;
@@ -74,76 +81,93 @@ ul {
 
 .Sidebar {
   flex-basis: 25%; }
-  .Sidebar__downloader {
-    width: 100%;
-    margin: 0 0 1em;
-    background-color: #a5eca5;
-    border: 0;
-    border-radius: 4px;
-    padding: 1em;
-    transition: .35s background-color ease;
-    font-size: 14px; }
-    .Sidebar__downloader:hover {
-      cursor: pointer;
-      background-color: #35a735; }
+
+.Sidebar__downloader {
+  width: 100%;
+  margin: 0 0 1em;
+  background-color: #a5eca5;
+  border: 0;
+  border-radius: 4px;
+  padding: 1em;
+  transition: .35s background-color ease;
+  font-size: 14px; }
+
+.Sidebar__downloader:hover {
+  cursor: pointer;
+  background-color: #35a735; }
 
 .Homelist {
   margin-top: 1em;
   flex-basis: 70%; }
-  .Homelist .Homecard {
-    align-items: center;
-    background-color: #eeeeee;
-    box-sizing: border-box;
-    border-radius: 4px;
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 1.5em;
-    position: relative;
-    justify-content: space-between; }
-    .Homelist .Homecard__photo {
-      border-radius: 4px;
-      flex-basis: 40%;
-      padding: 11px;
-      box-sizing: border-box; }
-      .Homelist .Homecard__photo img {
-        display: block;
-        border-radius: 4px;
-        width: 100%; }
-    .Homelist .Homecard .Homecard__info {
-      display: flex;
-      flex-basis: 60%;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center; }
-      .Homelist .Homecard .Homecard__info .Homecard__title {
-        box-sizing: border-box;
-        flex-basis: 70%;
-        font-size: 18px;
-        padding: 1em; }
-      .Homelist .Homecard .Homecard__info .Homecard__price {
-        font-family: "Luckiest Guy", cursive;
-        flex-basis: 30%;
-        font-size: 36px;
-        font-weight: bold;
-        text-align: center;
-        letter-spacing: 1px; }
-      .Homelist .Homecard .Homecard__info .Homecard__buttons {
-        display: flex;
-        flex-basis: 100%;
-        justify-content: flex-end;
-        align-content: flex-end; }
-    .Homelist .Homecard .primaryBtn {
-      background-color: white;
-      border-radius: 4px;
-      padding: 1.35em 2.35em;
-      margin: 1em;
-      transition: .25s background-color ease;
-      border: 0; }
-      .Homelist .Homecard .primaryBtn:focus {
-        outline: none; }
-      .Homelist .Homecard .primaryBtn:hover {
-        cursor: pointer;
-        background-color: #ffc747; }
+
+.Homelist .Homecard {
+  align-items: center;
+  background-color: #eeeeee;
+  box-sizing: border-box;
+  border-radius: 4px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 1.5em;
+  position: relative;
+  justify-content: space-between; }
+
+.Homelist .Homecard__photo {
+  border-radius: 4px;
+  flex-basis: 40%;
+  padding: 11px;
+  box-sizing: border-box; }
+
+.Homelist .Homecard__photo img {
+  display: block;
+  border-radius: 4px;
+  width: 100%;
+  transition: .55s ease; }
+
+.Homelist .Homecard__photo img:hover {
+  opacity: .5;
+  cursor: pointer;
+  box-shadow: 4px 5px 5px 4px #c1c1c1; }
+
+.Homelist .Homecard .Homecard__info {
+  display: flex;
+  flex-basis: 60%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center; }
+
+.Homelist .Homecard .Homecard__info .Homecard__title {
+  box-sizing: border-box;
+  flex-basis: 70%;
+  font-size: 18px;
+  padding: 1em; }
+
+.Homelist .Homecard .Homecard__info .Homecard__price {
+  font-family: "Luckiest Guy", cursive;
+  flex-basis: 30%;
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 1px; }
+
+.Homelist .Homecard .Homecard__info .Homecard__buttons {
+  display: flex;
+  flex-basis: 100%;
+  justify-content: flex-end;
+  align-content: flex-end; }
+
+.Homelist .Homecard .primaryBtn {
+  background-color: white;
+  padding: 1.35em 2.35em;
+  margin: 1em;
+  transition: .25s background-color ease;
+  border: 0; }
+
+.Homelist .Homecard .primaryBtn:focus {
+  outline: none; }
+
+.Homelist .Homecard .primaryBtn:hover {
+  cursor: pointer;
+  background-color: #ffc747; }
 
 @media screen and (max-width: 540px) {
   .Loader__wrapper {
@@ -156,45 +180,50 @@ ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: center; }
-    .Sidebar__selector {
-      width: 100%; }
+  .Sidebar__selector {
+    width: 100%; }
   .Sidebar,
   .Homelist {
     flex-basis: 100%; }
-    .Sidebar .Homecard,
-    .Homelist .Homecard {
-      flex-wrap: wrap; }
-      .Sidebar .Homecard .Homecard__photo,
-      .Homelist .Homecard .Homecard__photo {
-        flex-basis: 100%;
-        padding: 0; }
-        .Sidebar .Homecard .Homecard__photo img,
-        .Homelist .Homecard .Homecard__photo img {
-          border-radius: 4px; }
-      .Sidebar .Homecard .Homecard__info,
-      .Homelist .Homecard .Homecard__info {
-        flex-basis: 100%; }
-        .Sidebar .Homecard .Homecard__info .Homecard__title,
-        .Homelist .Homecard .Homecard__info .Homecard__title {
-          flex-basis: 70%;
-          font-size: 18px; }
-        .Sidebar .Homecard .Homecard__info .Homecard__price,
-        .Homelist .Homecard .Homecard__info .Homecard__price {
-          flex-basis: 30%;
-          font-size: 36px; }
-        .Sidebar .Homecard .Homecard__info .Homecard__buttons,
-        .Homelist .Homecard .Homecard__info .Homecard__buttons {
-          justify-content: center;
-          align-content: center; }
-          .Sidebar .Homecard .Homecard__info .Homecard__buttons .primaryBtn,
-          .Homelist .Homecard .Homecard__info .Homecard__buttons .primaryBtn {
-            margin-right: 0;
-            font-size: 14px; }
+  .Sidebar .Homecard,
+  .Homelist .Homecard {
+    flex-wrap: wrap; }
+  .Sidebar .Homecard .Homecard__photo,
+  .Homelist .Homecard .Homecard__photo {
+    flex-basis: 100%;
+    padding: 0; }
+  .Sidebar .Homecard .Homecard__photo img,
+  .Homelist .Homecard .Homecard__photo img {
+    border-radius: 4px; }
+  .Sidebar .Homecard .Homecard__photo img:hover,
+  .Homelist .Homecard .Homecard__photo img:hover {
+    opacity: unset;
+    cursor: unset;
+    box-shadow: unset; }
+  .Sidebar .Homecard .Homecard__info,
+  .Homelist .Homecard .Homecard__info {
+    flex-basis: 100%; }
+  .Sidebar .Homecard .Homecard__info .Homecard__title,
+  .Homelist .Homecard .Homecard__info .Homecard__title {
+    flex-basis: 70%;
+    font-size: 18px; }
+  .Sidebar .Homecard .Homecard__info .Homecard__price,
+  .Homelist .Homecard .Homecard__info .Homecard__price {
+    flex-basis: 30%;
+    font-size: 36px; }
+  .Sidebar .Homecard .Homecard__info .Homecard__buttons,
+  .Homelist .Homecard .Homecard__info .Homecard__buttons {
+    justify-content: center;
+    align-content: center; }
+  .Sidebar .Homecard .Homecard__info .Homecard__buttons .primaryBtn,
+  .Homelist .Homecard .Homecard__info .Homecard__buttons .primaryBtn {
+    margin-right: 0;
+    font-size: 14px; }
   .Navbar {
     align-items: center; }
-    .Navbar__logo {
-      flex-basis: 100%; }
-    .Navbar__links {
-      display: none; }
-      .Navbar__links-mobile {
-        display: block; } }
+  .Navbar__logo {
+    flex-basis: 100%; }
+  .Navbar__links {
+    display: none; }
+  .Navbar__links-mobile {
+    display: block; } }

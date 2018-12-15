@@ -21,6 +21,12 @@
                 display: block;
                 border-radius: 4px;
                 width: 100%;
+                transition: .55s ease;
+                &:hover {
+                    opacity: .5;
+                    cursor: pointer;
+                    box-shadow: 4px 5px 5px 4px #c1c1c1;
+                }
             }
         }
 
@@ -57,7 +63,6 @@
 
         .primaryBtn {
             background-color: white;
-            border-radius: 4px;
             padding: 1.35em 2.35em;
             margin: 1em;
             transition: .25s background-color ease;
