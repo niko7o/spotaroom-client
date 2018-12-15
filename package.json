@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "jest": "^23.6.0",
     "prop-types": "^15.6.2",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
@@ -15,7 +16,8 @@
     "watch-css": "npm run build-css && node-sass --include-path ./src/styles --include-path ./node_modules src/ -o src/ --watch --recursive",
     "start": "npm-run-all -p watch-css start-js",
     "build": "npm run build-css && react-scripts build",
-    "start-js": "react-scripts start"
+    "start-js": "react-scripts start",
+    "test": "jest"
   },
   "eslintConfig": {
     "extends": "react-app"

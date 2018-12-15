@@ -50,9 +50,6 @@ class Sidebar extends Component {
           onChange={this.changePriceOnSelect}
           options={PriceSelectOptions} 
         />
-
-        <p>Save your search:</p>
-        <button className="Sidebar__downloader" type="button">Download JSON</button>
       </div>
     );
   }

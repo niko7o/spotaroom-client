@@ -44,8 +44,9 @@ class App extends Component {
     this.setState({ loading: true })
     axios.get(`http://localhost:8000/api/homes/${this.state.city}/${selectedType}`)
     .then(typedHomes => {
+      const orderedTypedHomes = this.orderHomesBy(this.state.sort, typedHomes.data.data)
       this.setState({
-        homes: typedHomes.data.data,
+        homes: orderedTypedHomes,
         type: selectedType,
         loading: false
       })
