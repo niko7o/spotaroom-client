@@ -1,0 +1,17 @@
+.Sidebar {
+    flex-basis: 25%;
+    &__downloader {
+        width: 100%;
+        margin: 0 0 1em;
+        background-color: #a5eca5;
+        border: 0;
+        border-radius: 4px;
+        padding: 1em;
+        transition: .35s background-color ease;
+        font-size: 14px;
+        &:hover {
+            cursor: pointer;
+            background-color: #35a735;
+        }
+    }
+}
